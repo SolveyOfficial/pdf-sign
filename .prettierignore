@@ -1,0 +1,5 @@
+dist
+public/pdfjs
+node_modules
+package-lock.json
+THIRD_PARTY_NOTICES.md

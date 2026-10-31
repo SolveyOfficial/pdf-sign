@@ -1,0 +1,44 @@
+{
+  "name": "solvey-fill-and-sign",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fill and sign PDFs in your browser: add a signature, text, dates and ticks, or fill in PDF forms.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "assets": "node scripts/copy-pdfjs-assets.js",
+    "dev": "npm run assets && vite",
+    "build": "npm run assets && tsc && vite build && node scripts/third-party-notices.js",
+    "preview": "vite preview",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/plus-jakarta-sans": "5.3.0",
+    "@fontsource/caveat": "5.3.0",
+    "@fontsource/dancing-script": "5.3.0",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "6.4.299"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "22.20.5",
+    "eslint": "10.14.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "rollup-plugin-license": "3.7.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
+  }
+}
