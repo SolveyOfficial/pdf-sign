@@ -39,6 +39,17 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
 
+      # solvey.in/tools/<repository>/ is forwarded to the tools/<repository>/
+      # folder of this site, so the same commit is built again for that path
+      - name: Build the copy for solvey.in/tools
+        run: |
+          npx vite build --outDir dist-tools
+          cp dist/THIRD_PARTY_NOTICES.txt dist-tools/
+          mkdir -p dist/tools
+          mv dist-tools "dist/tools/${{ github.event.repository.name }}"
+        env:
+          BASE_PATH: /tools/${{ github.event.repository.name }}/
+
       - name: Check licence notices are up to date
         run: git diff --exit-code THIRD_PARTY_NOTICES.md
 
